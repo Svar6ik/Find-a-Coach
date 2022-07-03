@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       selectedCoach: null,
+      buttonIsValid: true,
     };
   },
   computed: {
@@ -44,7 +45,7 @@ export default {
        return this.selectedCoach.description;
     },
     contactLink() {
-      return this.$route.path + '/' + this.id + '/contact';
+      return this.$route.path + '/contact';
     }
   },
   created() {
@@ -52,5 +53,6 @@ export default {
       coach => coach.id === this.id
     );
   },
+
 }
 </script>
