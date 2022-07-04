@@ -36,7 +36,7 @@ export default {
         return;
       }
 
-      this.$store.dispatch('request/contactCoach', { // отпарвка в actions
+      this.$store.dispatch('requests/contactCoach', { 
         email: this.email,
         message: this.message,
         coachId: this.$route.params.id // доступ к id с станицы полсе регистрации 
