@@ -5,6 +5,7 @@ import CoachesList from './page/coaches/CoachesList.vue';
 import CoachRegistration from './page/coaches/CoachRegistration.vue';
 import ContactCoach from './page/requests/ContactCoach.vue';
 import RequestsReceived from './page/requests/RequestsReceived.vue';
+import UserAuth from './page/auth/UserAuth.vue';
 import NotFound from './page/NotFound.vue';
 
 const router = createRouter({
@@ -22,6 +23,7 @@ const router = createRouter({
     },
     { path: '/register', component: CoachRegistration },
     { path: '/requests', component: RequestsReceived },
+    { path: '/auth', component: UserAuth },
     { path: '/:notFound(.*)', component: NotFound },
   ],
 
