@@ -9,9 +9,25 @@
 
 <script>
   import TheHeader from './components/layout/TheHeader.vue';
+  
   export default {
     components: {
       TheHeader
+    },
+    computed: {
+      didAutoLogout() {
+        return this.$store.getters.didAutoLogout;
+      }
+    },
+    created() {
+      this.$store.dispatch('tryLogin');
+    },
+    watch: {
+      didAutoLogout(curValue, oldValue) {
+        if (curValue && curValue !== oldValue) {
+          this.$router.replace('/coaches');
+        }
+      }
     }
   }
 </script>
@@ -33,12 +49,12 @@ body {
 
 .route-enter-from {
   opacity: 0;
-  transform:  translateY(-30px);
+  transform: translateY(-30px);
 }
 
 .route-leave-to {
   opacity: 0;
-  transform:  translateY(30px);
+  transform: translateY(30px);
 }
 
 .route-enter-active {
@@ -52,7 +68,6 @@ body {
 .route-enter-to,
 .route-leave-from {
   opacity: 1;
-  transform:  translateY(0);
+  transform: translateY(0);
 }
-
 </style>
